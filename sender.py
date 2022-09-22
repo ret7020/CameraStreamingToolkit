@@ -1,11 +1,10 @@
 import socket
 import cv2
+from s_config import *
 
 try:
     cap = cv2.VideoCapture(0)
 
-    UDP_IP = "127.0.0.1"
-    UDP_PORT = 5005
 
     sock = socket.socket(socket.AF_INET, # Internet
                         socket.SOCK_DGRAM) # UDP
