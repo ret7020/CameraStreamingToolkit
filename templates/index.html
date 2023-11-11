@@ -1,0 +1,68 @@
+<html>
+
+<head>
+   <title>Remote Car</title>
+   <script type="text/javascript" src="/static/performance-polyfill.js"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet">
+   <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="text-center">
+            <h1>Control Center</h1>
+            <h4>Live image</h4>
+         </div>
+         <img id="liveImg" class="streamImg" alt="front camera stream here" />
+      </div>
+      <div class="row justify-content-center">
+         <div class="text-center">
+            <h1>Movement control Periphery</h1>
+            <h3>X axis and steering</h3>
+         </div>
+
+         <div class="row justify-content-center">
+            <div class="btn-group-vertical w-50 joystick-group" role="group">
+               <button type="button" class="btn btn-secondary btn-lg" onclick="joystick_move('y-')"><span
+                     class="bi-caret-up-fill"></span></button>
+               <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-secondary btn-lg" onclick="joystick_move('x-')"><span
+                        class="bi-caret-left-fill"></span></button>
+                  <button type="button" class="btn btn-secondary btn-lg" onclick="joystick_move('x+')"><span
+                        class="bi-caret-right-fill"></span></button>
+               </div>
+               <button type="button" class="btn btn-secondary btn-lg" onclick="joystick_move('y+')"><span
+                     class="bi-caret-down-fill"></span></button>
+            </div>
+         </div>
+         <div class="text-center">
+            <h1>Periphery control</h1>
+         </div>
+
+         <div class="row justify-content-center">
+            <div class="btn-group-vertical w-20 gap-1 periphery-group" role="group">
+               <button type="button" class="btn btn-success btn-lg" id="system-power-on-btn"
+                  onclick="robot_system_command('power_on')">LEDS On</button>
+               <button type="button" class="btn btn-warning btn-lg" id="system-brake-release-btn"
+                  onclick="robot_system_command('brake_release')">LEDS Off</button>
+            </div>
+            <div class="btn-group-vertical w-20 gap-1 periphery-group" role="group">
+               <button type="button" class="btn btn-success btn-lg" id="system-power-on-btn"
+                  onclick="robot_system_command('power_on')">Smth</button>
+               <button type="button" class="btn btn-danger btn-lg" id="system-brake-release-btn"
+                  onclick="robot_system_command('brake_release')">Shutdown</button>
+            </div>
+         </div>
+      </div>
+
+      <script type="text/javascript" src="/static/client.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+         integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+         crossorigin="anonymous"></script>
+</body>
+
+</html>
