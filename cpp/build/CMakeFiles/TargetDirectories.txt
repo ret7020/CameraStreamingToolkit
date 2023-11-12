@@ -1,0 +1,3 @@
+/home/pi/Progs/CameraStreamingToolkit/cpp/build/CMakeFiles/rebuild_cache.dir
+/home/pi/Progs/CameraStreamingToolkit/cpp/build/CMakeFiles/edit_cache.dir
+/home/pi/Progs/CameraStreamingToolkit/cpp/build/CMakeFiles/stream.dir
