@@ -12,12 +12,18 @@ import base64
 class Camera:
     def __init__(self, index) -> None:
         self.camera = cv2.VideoCapture(index)
+        self.camera.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+        self.camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
         self.encode_params = [int(cv2.IMWRITE_JPEG_QUALITY), 70]
         self.image = cv2.imencode('.jpg', np.zeros((480, 640)), self.encode_params)[1].tobytes()
         logging.info("Camera inited")
+        #self.cache = 
 
     def get_jpeg_image_bytes(self):
-        ret, img = self.camera.read()
+        start_time = time.time()
+        _, img = self.camera.read()
+
+        #print(1 / (time.time() - start_time))
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         res = cv2.imencode('.jpg', img, self.encode_params)[1].tobytes()
         res = gzip.compress(res)
@@ -28,7 +34,7 @@ app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 sock = Sock(app)
-camera = Camera(1)
+camera = Camera("file_example_MP4_1920_18MG.mp4")
 
 @app.route('/')
 def index():
