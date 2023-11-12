@@ -17,18 +17,22 @@ class Camera:
         self.encode_params = [int(cv2.IMWRITE_JPEG_QUALITY), 70]
         self.image = cv2.imencode('.jpg', np.zeros((480, 640)), self.encode_params)[1].tobytes()
         logging.info("Camera inited")
-        #self.cache = 
+        _, self.cache = self.camera.read()
+        self.cache = cv2.cvtColor(self.cache, cv2.COLOR_BGR2GRAY)
+        self.cache = cv2.imencode('.jpg', self.cache, self.encode_params)[1].tobytes()
+        self.cache = gzip.compress(self.cache)
+        
 
     def get_jpeg_image_bytes(self):
-        start_time = time.time()
-        _, img = self.camera.read()
+        #start_time = time.time()
+        #_, img = self.camera.read()
 
         #print(1 / (time.time() - start_time))
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        res = cv2.imencode('.jpg', img, self.encode_params)[1].tobytes()
-        res = gzip.compress(res)
+        #img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        #res = cv2.imencode('.jpg', img, self.encode_params)[1].tobytes()
+        #res = gzip.compress(res)
         
-        return res
+        return self.cache
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
