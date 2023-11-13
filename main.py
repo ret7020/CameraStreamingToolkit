@@ -25,20 +25,21 @@ class Camera:
 
     def get_jpeg_image_bytes(self):
         #start_time = time.time()
-        #_, img = self.camera.read()
+        _, img = self.camera.read()
 
         #print(1 / (time.time() - start_time))
-        #img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        #res = cv2.imencode('.jpg', img, self.encode_params)[1].tobytes()
-        #res = gzip.compress(res)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        res = cv2.imencode('.jpg', img, self.encode_params)[1].tobytes()
+        res = gzip.compress(res)
         
-        return self.cache
+        return res
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 sock = Sock(app)
-camera = Camera("file_example_MP4_1920_18MG.mp4")
+#camera = Camera("file_example_MP4_1920_18MG.mp4")
+camera = Camera(0)
 
 @app.route('/')
 def index():
