@@ -1,6 +1,7 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <compress.hpp>
+#include "crow_all.h"
 
 int main(){
 	std::chrono::high_resolution_clock timer;
@@ -11,8 +12,8 @@ int main(){
 	params.push_back(cv::IMWRITE_JPEG_QUALITY);
 	params.push_back(80); 
 	cv::VideoCapture cap( 0 );
-       int main() {
-           crow::SimpleApp app;
+       //int main() {
+        //   crow::SimpleApp app;
 
     // Register the WebSocket endpoint route
     //     CROW_ROUTE(app, "/ws/image").webSocket().onopen(handleWebSocketImage);
@@ -21,7 +22,7 @@ int main(){
     //             app.port(8080).multithreaded().run();
     //                 
     //                     return 0;
-    }	   
+    //}	   
 	for(;;){
 		auto start = timer.now();
 		cap >> frame;

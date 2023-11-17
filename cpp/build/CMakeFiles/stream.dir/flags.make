@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/pi/Progs/CameraStreamingToolkit/cpp/gzip -isystem /usr/include/opencv4
+CXX_INCLUDES = -I/home/pi/Progs/CameraStreamingToolkit/cpp/gzip -I/home/pi/Progs/CameraStreamingToolkit/cpp/crow -isystem /usr/include/opencv4
 
 CXX_FLAGS = 
 
