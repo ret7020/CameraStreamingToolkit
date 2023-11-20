@@ -38,8 +38,8 @@ app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 sock = Sock(app)
-camera = Camera("file_example_MP4_1920_18MG.mp4")
-#camera = Camera(0)
+#camera = Camera("file_example_MP4_1920_18MG.mp4")
+camera = Camera(0)
 
 @app.route('/')
 def index():
