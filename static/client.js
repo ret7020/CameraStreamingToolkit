@@ -6,7 +6,7 @@ var avg_fps = document.getElementById("avg_fps");
 
 var wsProtocol = (location.protocol === "https:") ? "wss://" : "ws://";
 
-var ws = new WebSocket(wsProtocol + location.host + "/image");
+var ws = new WebSocket(wsProtocol + location.host + "/image/sd");
 ws.binaryType = 'arraybuffer';
 var data;
 let ll_fps = 1000;
