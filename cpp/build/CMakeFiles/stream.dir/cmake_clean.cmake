@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/stream.dir/stream.cpp.o"
+  "CMakeFiles/stream.dir/stream.cpp.o.d"
   "stream"
   "stream.pdb"
 )
